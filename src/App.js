@@ -6,6 +6,10 @@ class App extends Component {
 
   state = { text: "foo" }
 
+  updateText(text) {
+    this.setState({ text });
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +17,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Word Counter YO</h1>
         </header>
-        <textarea onChange={ (e) => this.setState({ text: e.target.value }) } value={this.state.text}></textarea>
+        <textarea onChange={ (e) => this.updateText(e.target.value) } value={this.state.text}></textarea>
         <div>Word count: some Number</div>
         <div>Time to read: some sdfad</div>
       </div>
