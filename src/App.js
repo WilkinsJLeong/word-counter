@@ -4,10 +4,19 @@ import './App.css';
 
 class App extends Component {
 
-  state = { text: "foo" }
+  state = {
+    text: "foo",
+    count: 0,
+    time: 0
+  }
 
   updateText(text) {
-    this.setState({ text });
+    const count = text.split(" ").length
+    this.setState({
+      text,
+      count,
+      time: count/200
+    });
   }
 
   render() {
@@ -18,8 +27,8 @@ class App extends Component {
           <h1 className="App-title">Word Counter YO</h1>
         </header>
         <textarea onChange={ (e) => this.updateText(e.target.value) } value={this.state.text}></textarea>
-        <div>Word count: some Number</div>
-        <div>Time to read: some sdfad</div>
+        <div>Word count: {this.state.count}</div>
+        <div>Time to read: {this.state.time}</div>
       </div>
     );
   }
