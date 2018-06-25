@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// TODO: Get TravisCI to run `npm run deploy` for every new commit on master
+// https://docs.travis-ci.com/user/getting-started/
+
 class App extends Component {
 
   state = {
@@ -11,7 +14,8 @@ class App extends Component {
   }
 
   updateText(text) {
-    const count = text.split(" ").length
+    // TODO: WTF is /\w+/
+    const count = text.split(/\w+/).length
     this.setState({
       text,
       count,
